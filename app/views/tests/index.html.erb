@@ -1,0 +1,9 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'ajax_test', 'data-turbolinks-track' => true %>
+<% end %>
+
+<h1>ajaxテストページ</h1>
+
+<%= link_to 'jsonを表示する', ajax_test_path, {id: "ajax_test", remote: true} %>
+
+<table id="user"></table>

@@ -1,0 +1,28 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'iine_button', 'data-turbolinks-track' => true %>
+<% end %>
+
+
+<% if user_signed_in? %>
+  <% if tweet.like_user(current_user.id) %>
+    <%= button_to tweet_like_path(0, tweet_id: tweet.id), method: :delete, id: "like-button", remote: true do %>
+      <%= image_tag 'heart_red.png', class: 'heart' %>
+      <span>
+        <%= tweet.likes_count %>a
+      </span>
+    <% end %>
+  <% else %>
+    <%= button_to tweet_likes_path(tweet), id: "like-button", remote: true do %>
+      <%= image_tag 'heart_white.png', class: 'heart' %>
+      <span>
+        <%= tweet.likes_count %>b
+      </span>
+    <% end %>
+  <% end %>
+  
+<% else %>
+  <%= image_tag 'heart_white.png', class: 'heart' %>
+    <span>
+      <%= tweet.likes_count %>ここには絶対にこない
+    </span>
+<% end %>

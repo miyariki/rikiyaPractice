@@ -1,0 +1,25 @@
+<!-- ページ共通部分の表示を書くとこ -->
+<!-- '<= yield >' の中にそれぞれのページの表示が入る -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rikitter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <body>
+  
+  <% if user_signed_in? %>
+    <p><%= current_user.username %>としてログイン</p>
+    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+  <% end %>
+  
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

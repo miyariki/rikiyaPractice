@@ -1,0 +1,1 @@
+create database rikitter default character set utf8;
