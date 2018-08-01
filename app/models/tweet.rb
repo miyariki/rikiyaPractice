@@ -3,6 +3,7 @@
 
 class Tweet < ApplicationRecord
   belongs_to :user
+  belongs_to :relationship
   has_many :likes, dependent: :destroy
 
   # ユーザーが既にツイートにいいねしているかどうか確認するメソッド

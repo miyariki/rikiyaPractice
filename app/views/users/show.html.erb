@@ -3,4 +3,10 @@
 
 <h1>My page (<%= @user.username %>)</h1>
 
+<%= render 'follow_form' %>
+
+<section class="stats">
+  <%= render 'stats' %>
+</section>
+
 <%= link_to "tweet page", tweets_path %> | <%= link_to "all user page", users_path %>

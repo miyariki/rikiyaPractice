@@ -5,6 +5,12 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all
+    i = Relationship.where(follower_id: current_user.id).load
+    m = []
+    i.each do |l|
+      m.push(l.following_id)
+    end
+    @j = Tweet.where(user_id: [m]).load
   end
 
   # GET /tweets/1
