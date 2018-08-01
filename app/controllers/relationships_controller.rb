@@ -1,3 +1,4 @@
+# [omiend] ログイン時にフォロー出来るようにするべきだけど、継承しているApplicationControllerがデフォルトのモノだから、ログインしていなくてもこの機能が呼べてしまう
 class RelationshipsController < ApplicationController
 
   def create
@@ -11,5 +12,5 @@ class RelationshipsController < ApplicationController
     current_user.unfollow!(@user)
     redirect_to @user
   end
-  
+
 end
