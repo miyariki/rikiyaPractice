@@ -19,20 +19,20 @@ class User < ApplicationRecord
     end
   end
 
-
+  # [omiend] has_many等は上段に、メソッドを下段に定義したほうが見通しが良い
   has_many :active_relationships,class_name:  "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
   has_many :active_relationships,class_name:  "Relationship", foreign_key: "following_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :following
-  
+
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
-  # 
+  #
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
-  # 
+  #
 
 
   def following?(other_user)

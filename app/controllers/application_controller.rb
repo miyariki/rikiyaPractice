@@ -1,3 +1,4 @@
+# [omiend] インテンドは注意するように
 class ApplicationController < ActionController::Base
 # ログインしてないと飛ばされる
     before_action :authenticate_user!

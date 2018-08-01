@@ -1,3 +1,4 @@
+# [omiend] ログイン時にフォロー出来るようにするべきだけど、継承しているApplicationControllerがデフォルトのモノだから、ログインしていなくてもこの機能が呼べてしまう
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
